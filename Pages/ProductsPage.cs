@@ -1,4 +1,4 @@
-﻿using OpenQA.Selenium;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 namespace TechMehendra.Pages
@@ -15,53 +15,7 @@ namespace TechMehendra.Pages
         {
             this.driver = driver;
 
-        }
-        public void EnterUserName(string text)
-        {
-            WaitForElement(userName, 30).SendKeys(text);
-        }
-        public void EnterPassword(string text)
-        {
-            WaitForElement(password, 30).SendKeys(text);
-
-        }
-        public void ClickLogin()
-        {
-            WaitForElement(btnLogin, 30).Click();
-        }
-        public void ClickOnBurtton(By locater,string name)
-        {
-            IWebElement element=WaitForElement(locater, 30);
-            try {
-                element.Click();
-            } catch (Exception e) { 
-                
-            }
-            
-        }
-        public void EnterText(By locater, string name)
-        {
-            WaitForElement(locater, 30).SendKeys(name);
-        }
-        private IWebElement WaitForElement(By locator, int time)
-        {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(time));
-
-            return wait.Until(d =>
-            {
-                try
-                {
-                    var el = d.FindElement(locator);
-                    return el.Displayed ? el : null;
-                }
-                catch
-                {
-                    return null;
-                }
-            });
-        }
-       
-        
+        }      
        
 
     }
