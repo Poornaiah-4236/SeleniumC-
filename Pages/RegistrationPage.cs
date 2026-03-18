@@ -1,4 +1,4 @@
-﻿using OpenQA.Selenium;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -29,60 +29,8 @@ namespace TechMehendra.Pages
         public By Product =By.XPath("//ul[@class='leftmenu']//a[normalize-space()='Products']");
         public RegistrationPage(IWebDriver driver) { 
             this._driver = driver;
-        }
+        }      
        
-        public void EnterText(By locator,string value) {
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(20));
-
-          wait.Until(d =>
-            {
-                try
-                {
-                    var el = d.FindElement(locator);
-                    el.SendKeys(value);
-                    return el.Displayed ? el : null;
-                }
-                catch
-                {
-                    return null;
-                }
-            });
-            
-        }
-        public void RegisterUser(string fName, string lName, string addr,
-        string cityName, string stateName, string zipCode,
-        string phoneNum, string ssnNum, string user,
-        string pass, string confirmPass)
-        {
-            /*
-            Register.Click();
-            Wait(firstName).SendKeys(fName);
-            Wait(lastName).SendKeys(lName);
-            Wait(address).SendKeys(addr);
-            Wait(city).SendKeys(cityName);
-            Wait(state).SendKeys(stateName);
-            Wait(zip).SendKeys(zipCode);
-            Wait(phone).SendKeys(phoneNum);
-            Wait(ssn).SendKeys(ssnNum);
-            Wait(useName).SendKeys(user);
-            Wait(password).SendKeys(pass);
-            Wait(confirmPassword).SendKeys(confirmPass);
-            Wait(registredButton).Click();
-            WaitForElement(Product,60);
-            */
-
-
-        }
-        public IWebElement Wait(IWebElement element)
-        {
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            return wait.Until(d => element.Displayed ? element : null);
-        }
-        public void WaitForElement(IWebElement element,int time)
-        {
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(time));
-            wait.Until(d => element.Displayed ? element : null);
-        }
 
     }
 }
